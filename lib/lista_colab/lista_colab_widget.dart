@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -296,7 +297,7 @@ class _ListaColabWidgetState extends State<ListaColabWidget>
                                                       getJsonField(
                                                     listaColabListaColabNaIntegResponse
                                                         .jsonBody,
-                                                    r'''$.dados''',
+                                                    r'''$.dados[:]''',
                                                   ).toList();
                                                   if (colaboradoresNaIntegracao
                                                       .isEmpty) {
@@ -344,7 +345,7 @@ class _ListaColabWidgetState extends State<ListaColabWidget>
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0.0,
+                                                                      8.0,
                                                                       0.0,
                                                                       0.0,
                                                                       6.0),
@@ -352,20 +353,61 @@ class _ListaColabWidgetState extends State<ListaColabWidget>
                                                             width: 100.0,
                                                             decoration:
                                                                 BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
+                                                              color:
+                                                                  Colors.white,
                                                               boxShadow: [
                                                                 BoxShadow(
                                                                   blurRadius:
                                                                       0.0,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
+                                                                  color:
+                                                                      valueOrDefault<
+                                                                          Color>(
+                                                                    () {
+                                                                      if (valueOrDefault<
+                                                                              String>(
+                                                                            functions.funcaoIf(getJsonField(
+                                                                              colaboradoresNaIntegracaoItem,
+                                                                              r'''$.presenca''',
+                                                                            ).toString()),
+                                                                            'X',
+                                                                          ) ==
+                                                                          'Nulo') {
+                                                                        return Colors
+                                                                            .white;
+                                                                      } else if (valueOrDefault<
+                                                                              String>(
+                                                                            functions.funcaoIf(getJsonField(
+                                                                              colaboradoresNaIntegracaoItem,
+                                                                              r'''$.presenca''',
+                                                                            ).toString()),
+                                                                            'X',
+                                                                          ) ==
+                                                                          'Ausente') {
+                                                                        return const Color(
+                                                                            0xFFFF0000);
+                                                                      } else if (valueOrDefault<
+                                                                              String>(
+                                                                            functions.funcaoIf(getJsonField(
+                                                                              colaboradoresNaIntegracaoItem,
+                                                                              r'''$.presenca''',
+                                                                            ).toString()),
+                                                                            'X',
+                                                                          ) ==
+                                                                          'Presente') {
+                                                                        return const Color(
+                                                                            0xE700FF1A);
+                                                                      } else {
+                                                                        return Colors
+                                                                            .white;
+                                                                      }
+                                                                    }(),
+                                                                    Colors
+                                                                        .white,
+                                                                  ),
                                                                   offset:
                                                                       const Offset(
-                                                                          0.0,
-                                                                          1.0),
+                                                                          -8.0,
+                                                                          0.0),
                                                                 )
                                                               ],
                                                               borderRadius:
@@ -404,6 +446,27 @@ class _ListaColabWidgetState extends State<ListaColabWidget>
                                                                               colaboradoresNaIntegracaoItem,
                                                                               r'''$.nome_colab''',
                                                                             ).toString(),
+                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              12.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              functions.funcaoIf(getJsonField(
+                                                                                colaboradoresNaIntegracaoItem,
+                                                                                r'''$.presenca''',
+                                                                              ).toString()),
+                                                                              'X',
+                                                                            ),
                                                                             style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                   fontFamily: 'Readex Pro',
                                                                                   fontWeight: FontWeight.bold,
@@ -745,7 +808,7 @@ class _ListaColabWidgetState extends State<ListaColabWidget>
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0.0,
+                                                                      8.0,
                                                                       0.0,
                                                                       0.0,
                                                                       6.0),
@@ -753,26 +816,29 @@ class _ListaColabWidgetState extends State<ListaColabWidget>
                                                             width: 100.0,
                                                             decoration:
                                                                 BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryBackground,
-                                                              boxShadow: [
+                                                              color:
+                                                                  Colors.white,
+                                                              boxShadow: const [
                                                                 BoxShadow(
                                                                   blurRadius:
                                                                       0.0,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
+                                                                  color: Color(
+                                                                      0xFFFF0000),
                                                                   offset:
-                                                                      const Offset(
-                                                                          0.0,
-                                                                          1.0),
+                                                                      Offset(
+                                                                          -8.0,
+                                                                          0.0),
                                                                 )
                                                               ],
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
                                                                           12.0),
+                                                              border:
+                                                                  Border.all(
+                                                                color: const Color(
+                                                                    0x00F10000),
+                                                              ),
                                                             ),
                                                             child: Padding(
                                                               padding:

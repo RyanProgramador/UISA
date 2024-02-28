@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
+import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -36,6 +38,36 @@ class FFAppState extends ChangeNotifier {
     });
     _safeInit(() {
       _UrlApis = prefs.getString('ff_UrlApis') ?? _UrlApis;
+    });
+    _safeInit(() {
+      if (prefs.containsKey('ff_JsonX')) {
+        try {
+          _JsonX = jsonDecode(prefs.getString('ff_JsonX') ?? '');
+        } catch (e) {
+          print("Can't decode persisted json. Error: $e.");
+        }
+      }
+    });
+    _safeInit(() {
+      if (prefs.containsKey('ff_jsonS')) {
+        try {
+          _jsonS = jsonDecode(prefs.getString('ff_jsonS') ?? '');
+        } catch (e) {
+          print("Can't decode persisted json. Error: $e.");
+        }
+      }
+    });
+    _safeInit(() {
+      if (prefs.containsKey('ff_JsonN')) {
+        try {
+          _JsonN = jsonDecode(prefs.getString('ff_JsonN') ?? '');
+        } catch (e) {
+          print("Can't decode persisted json. Error: $e.");
+        }
+      }
+    });
+    _safeInit(() {
+      _StringN = prefs.getStringList('ff_StringN') ?? _StringN;
     });
   }
 
@@ -89,6 +121,62 @@ class FFAppState extends ChangeNotifier {
   set UrlApis(String value) {
     _UrlApis = value;
     prefs.setString('ff_UrlApis', value);
+  }
+
+  dynamic _JsonX;
+  dynamic get JsonX => _JsonX;
+  set JsonX(dynamic value) {
+    _JsonX = value;
+    prefs.setString('ff_JsonX', jsonEncode(value));
+  }
+
+  dynamic _jsonS;
+  dynamic get jsonS => _jsonS;
+  set jsonS(dynamic value) {
+    _jsonS = value;
+    prefs.setString('ff_jsonS', jsonEncode(value));
+  }
+
+  dynamic _JsonN;
+  dynamic get JsonN => _JsonN;
+  set JsonN(dynamic value) {
+    _JsonN = value;
+    prefs.setString('ff_JsonN', jsonEncode(value));
+  }
+
+  List<String> _StringN = [];
+  List<String> get StringN => _StringN;
+  set StringN(List<String> value) {
+    _StringN = value;
+    prefs.setStringList('ff_StringN', value);
+  }
+
+  void addToStringN(String value) {
+    _StringN.add(value);
+    prefs.setStringList('ff_StringN', _StringN);
+  }
+
+  void removeFromStringN(String value) {
+    _StringN.remove(value);
+    prefs.setStringList('ff_StringN', _StringN);
+  }
+
+  void removeAtIndexFromStringN(int index) {
+    _StringN.removeAt(index);
+    prefs.setStringList('ff_StringN', _StringN);
+  }
+
+  void updateStringNAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    _StringN[index] = updateFn(_StringN[index]);
+    prefs.setStringList('ff_StringN', _StringN);
+  }
+
+  void insertAtIndexInStringN(int index, String value) {
+    _StringN.insert(index, value);
+    prefs.setStringList('ff_StringN', _StringN);
   }
 }
 

@@ -21,7 +21,7 @@ class LoginCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'login',
-      apiUrl: 'https://gestaoterceiros.uisa.com.br/gt/ws_flutterflow/index.php',
+      apiUrl: '$url',
       callType: ApiCallType.POST,
       headers: {},
       params: {},

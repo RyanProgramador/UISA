@@ -25,3 +25,15 @@ DateTime? stringToDateTime(String? dateString) {
     return null;
   }
 }
+
+String? funcaoIf(String? ouXouSouN) {
+  if (ouXouSouN == "X" || ouXouSouN == "x") {
+    return "Nulo";
+  } else if (ouXouSouN == "S" || ouXouSouN == "s") {
+    return "Presente";
+  } else if (ouXouSouN == "N" || ouXouSouN == "n") {
+    return "Ausente";
+  } else {
+    return "Valor inválido"; // Adicionado para lidar com qualquer outro valor que não seja X, x, S, s, N, ou n.
+  }
+}

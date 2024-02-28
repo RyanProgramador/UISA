@@ -22,10 +22,6 @@ class ListaColabModel extends FlutterFlowModel<ListaColabWidget> {
   ApiCallResponse? apiResultedrCopy;
   // Stores action output result for [Backend Call - API (PresenteOuAusente)] action in Icon widget.
   ApiCallResponse? apiResultedr1Copy;
-  // Stores action output result for [Backend Call - API (PresenteOuAusente)] action in Icon widget.
-  ApiCallResponse? apiResultedr2;
-  // Stores action output result for [Backend Call - API (PresenteOuAusente)] action in Icon widget.
-  ApiCallResponse? apiResultedr12;
 
   /// Initialization and disposal methods.
 

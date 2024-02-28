@@ -66,8 +66,7 @@ class ListaIntegracoesCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'listaIntegracoes',
-      apiUrl:
-          'https://dev.conceittosistemas.com.br/scriptcase/app/Documento_Terceiros/ws_flutterflow/index.php',
+      apiUrl: '$url',
       callType: ApiCallType.POST,
       headers: {},
       params: {},

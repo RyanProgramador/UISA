@@ -37,3 +37,7 @@ String? funcaoIf(String? ouXouSouN) {
     return "Valor inválido"; // Adicionado para lidar com qualquer outro valor que não seja X, x, S, s, N, ou n.
   }
 }
+
+bool? funcaoifStatus(bool? status) {
+  return status;
+}

@@ -116,7 +116,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   String _UrlApis =
-      'https://dev.conceittosistemas.com.br/scriptcase/app/Documento_Terceiros/ws_flutterflow/index.php';
+      'https://gestaoterceiros.uisa.com.br/gt/ws_flutterflow/index.php';
   String get UrlApis => _UrlApis;
   set UrlApis(String value) {
     _UrlApis = value;

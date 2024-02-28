@@ -818,14 +818,57 @@ class _ListaColabWidgetState extends State<ListaColabWidget>
                                                                 BoxDecoration(
                                                               color:
                                                                   Colors.white,
-                                                              boxShadow: const [
+                                                              boxShadow: [
                                                                 BoxShadow(
                                                                   blurRadius:
                                                                       0.0,
-                                                                  color: Color(
-                                                                      0xFFFF0000),
+                                                                  color:
+                                                                      valueOrDefault<
+                                                                          Color>(
+                                                                    () {
+                                                                      if (valueOrDefault<
+                                                                              String>(
+                                                                            functions.funcaoIf(getJsonField(
+                                                                              colaboradoresNaIntegracaoItem,
+                                                                              r'''$.presenca''',
+                                                                            ).toString()),
+                                                                            'X',
+                                                                          ) ==
+                                                                          'Nulo') {
+                                                                        return Colors
+                                                                            .white;
+                                                                      } else if (valueOrDefault<
+                                                                              String>(
+                                                                            functions.funcaoIf(getJsonField(
+                                                                              colaboradoresNaIntegracaoItem,
+                                                                              r'''$.presenca''',
+                                                                            ).toString()),
+                                                                            'X',
+                                                                          ) ==
+                                                                          'Ausente') {
+                                                                        return const Color(
+                                                                            0xFFFF0000);
+                                                                      } else if (valueOrDefault<
+                                                                              String>(
+                                                                            functions.funcaoIf(getJsonField(
+                                                                              colaboradoresNaIntegracaoItem,
+                                                                              r'''$.presenca''',
+                                                                            ).toString()),
+                                                                            'X',
+                                                                          ) ==
+                                                                          'Presente') {
+                                                                        return const Color(
+                                                                            0xE700FF1A);
+                                                                      } else {
+                                                                        return Colors
+                                                                            .white;
+                                                                      }
+                                                                    }(),
+                                                                    Colors
+                                                                        .white,
+                                                                  ),
                                                                   offset:
-                                                                      Offset(
+                                                                      const Offset(
                                                                           -8.0,
                                                                           0.0),
                                                                 )
@@ -871,6 +914,27 @@ class _ListaColabWidgetState extends State<ListaColabWidget>
                                                                               colaboradoresNaIntegracaoItem,
                                                                               r'''$.nome_colab''',
                                                                             ).toString(),
+                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                  fontFamily: 'Readex Pro',
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                ),
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              12.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            valueOrDefault<String>(
+                                                                              functions.funcaoIf(getJsonField(
+                                                                                colaboradoresNaIntegracaoItem,
+                                                                                r'''$.presenca''',
+                                                                              ).toString()),
+                                                                              'X',
+                                                                            ),
                                                                             style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                   fontFamily: 'Readex Pro',
                                                                                   fontWeight: FontWeight.bold,
@@ -1251,13 +1315,7 @@ class _ListaColabWidgetState extends State<ListaColabWidget>
                                       color: Color(0x00FFFFFF),
                                     ),
                                     child: Visibility(
-                                      visible:
-                                          ColaboradoresPresentesEAusenteCall
-                                                  .statusColabPresentAusent(
-                                                containerColaboradoresPresentesEAusenteResponse
-                                                    .jsonBody,
-                                              ) ==
-                                              true,
+                                      visible: true == false,
                                       child: SingleChildScrollView(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
